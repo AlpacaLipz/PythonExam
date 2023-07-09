@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <H1>Edit TV Show</H1>
+        <a href="/succ">Home</a>
+        <a href="/logout">Log Out</a>
+        {{that_show}}
+    </div>
+    <Form action="/shows/{{that_show.id}}/update" method="post">
+        <div>
+            <p>
+                <label for="title" class="form-label">Title:</label>
+                <input class="form-control text-center" name="title" value="{{that_show.title}}">
+            </p>
+            <p>
+                <label for="network">Network:</label>
+                <input name="network" value="{{that_show.network}}">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="release_date">Date of Release:</label>
+                <input type="date" name="release_date" value="{{that_show.release_date}}">
+            </p>
+            <p style="padding: 10px; text-center">
+                <label for="description" class="form-label">Description:</label>
+                <textarea class="form-control text-center" name="description" cols="55" rows="6">{{that_show.description}}</textarea>
+            </p>
+        </div>
+        <div>
+            <button type="submit">Edit Show</button>
+        </div>
+        {% for message in get_flashed_messages() %}
+            <p>{{message}}</p>
+        {% endfor %}
+    </Form>
+</body>
+
+</html>

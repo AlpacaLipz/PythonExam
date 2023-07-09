@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Add a New Show!</H1>
+    <Form action="/shows/make" method="post">
+        <div>
+            <p>
+                <label for="title" class="form-label">Title:</label>
+                <input class="form-control text-center" name="title" value="title">
+            </p>
+            <p>
+                <label for="network" class="form-label">Network:</label>
+                <input class="form-control text-center" name="network" value="network">
+            </p>
+            <p>
+                <label for="release_date" class="form-label">Date:</label>
+                <input type="date" class="form-control text-center" name="release_date" value="release_date">
+            </p>
+            <p>
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="description" cols="55" rows="6"></textarea>
+            </p>
+            <a href="/succ">TV Shows</a>
+            <a href="/logout">logout</a>
+        </div>
+        <div>
+            <a href="/succ"><button type="submit">Submit</button></a>
+        </div>
+        {% for message in get_flashed_messages() %}
+            <p class="text-center">{{message}}</p>
+        {% endfor %}
+    </Form>
+</body>
+</html>
